@@ -24,6 +24,8 @@ export class MapLocItem extends Component {
 		this.onClickItem();
 	}
 
+	//Если кликнули на item
+
 	onClickItem() {
 		this.node.on(
 			Node.EventType.TOUCH_START,
