@@ -6,6 +6,9 @@
  </tile>
  <tile id="9">
   <image width="397" height="196" source="../../images/img/forest_2d/CavePlatforms/2.png"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0.814145" y="4.07072" width="386.719" height="188.067"/>
+  </objectgroup>
  </tile>
  <tile id="10">
   <image width="581" height="364" source="../../images/img/forest_2d/CavePlatforms/3.png"/>

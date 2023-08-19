@@ -16,8 +16,6 @@ const { ccclass, property } = _decorator;
 export class Movement extends Component {
 	@property(RigidBody2D)
 	rb: RigidBody2D;
-	@property(Node)
-	cameraNode: Node;
 
 	horizontalMove: number = 0;
 
@@ -56,14 +54,6 @@ export class Movement extends Component {
 	}
 
 	protected update(dt: number): void {
-		this.rb.linearVelocity = new Vec2(
-			this.horizontalMove * this.speed * dt,
-			0
-		);
-		this.cameraNode.position = new Vec3(
-			this.node.position.x,
-			this.node.position.y + 200,
-			1000
-		);
+		this.rb.linearVelocity = new Vec2(this.horizontalMove * this.speed * dt, 0);
 	}
 }
