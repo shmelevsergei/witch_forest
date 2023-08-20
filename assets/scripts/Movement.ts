@@ -48,6 +48,17 @@ export class Movement extends Component {
 			case KeyCode.ARROW_LEFT:
 				this.horizontalMove = -1;
 				break;
+			case KeyCode.KEY_Z:
+				if (this.speed == 500){
+					this.speed = 1500;
+				}
+				else if (this.speed == 1500){
+					this.speed = 500;
+				}
+				else {
+					this.speed = 500;
+				}
+				break;
 		}
 	}
 

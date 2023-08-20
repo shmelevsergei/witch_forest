@@ -50,7 +50,7 @@ export class TilledCollision extends Component {
                     let tile = groundLayer.getTileGIDAt(i, j);
                     if (tile) {
                         let collider = groundLayer.node.addComponent(BoxCollider2D);
-                        collider.offset = new Vec2((i) * 32 + (tileImages[tile].imageSize.width / 2), ((j) * -32 + (tileImages[tile].imageSize.height / 2) + 2012));
+                        collider.offset = new Vec2((i) * 32 + (tileImages[tile].imageSize.width / 2), ((j) * -32 + (tileImages[tile].imageSize.height / 2) + 4056));
                         collider.size.width = tileImages[tile].imageSize.width;
                         collider.size.height = tileImages[tile].imageSize.height;
                         collider.friction = 0;
