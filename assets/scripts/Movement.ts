@@ -27,6 +27,9 @@ export class Movement extends Component {
 	rb: RigidBody2D;
 	playerCollider : CircleCollider2D;
 
+	@property(BoxCollider2D)
+	footTrigger: BoxCollider2D;
+
 	horizontalMove: number = 0;
 
 
@@ -93,7 +96,7 @@ export class Movement extends Component {
 		input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
 		input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
 
-		this.playerCollider = this.getComponent(CircleCollider2D);
+		// this.playerCollider = this.getComponent(CircleCollider2D);
     }
 
 	protected update(dt: number): void {
@@ -104,8 +107,8 @@ export class Movement extends Component {
 
 	CheckOnGround() {
 			let result = false;
-			if (this.playerCollider) {
-				const colliderList = PhysicsSystem2D.instance.testAABB(this.playerCollider.worldAABB);
+			if (this.footTrigger) {
+				const colliderList = PhysicsSystem2D.instance.testAABB(this.footTrigger.worldAABB);
 				colliderList.forEach(collidere => {
 					if (collidere.tag === 1) {
 						result = true;
