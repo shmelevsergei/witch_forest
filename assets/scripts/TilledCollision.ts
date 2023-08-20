@@ -54,6 +54,7 @@ export class TilledCollision extends Component {
                         collider.size.width = tileImages[tile].imageSize.width;
                         collider.size.height = tileImages[tile].imageSize.height;
                         collider.friction = 0;
+                        collider.tag = 1;
                         console.log(tile);
                     }
                 }

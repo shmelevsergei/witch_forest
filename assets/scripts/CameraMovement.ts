@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec3 } from 'cc';
+import { _decorator, Component, math, Node, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('CameraMovement')
@@ -7,13 +7,11 @@ export class CameraMovement extends Component {
     cameraOffset: Vec3 = new Vec3(0, 0, 1000);
     @property(Node)
     targetNode : Node;
-    start() {
 
-    }
-
-    update(deltaTime: number) {
-		this.node.position = new Vec3(this.targetNode.position.x + this.cameraOffset.x, this.targetNode.position.y + this.cameraOffset.y, this.cameraOffset.z);
-    }
+	protected lateUpdate(deltaTime: number): void {
+		let temptraget = this.targetNode.position.clone().add(this.cameraOffset);
+        this.node.position = Vec3.lerp(temptraget, this.node.position , temptraget, deltaTime * 5);
+	}
 }
 
 
