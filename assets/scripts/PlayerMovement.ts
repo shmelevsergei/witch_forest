@@ -21,8 +21,8 @@ import {
 } from "cc";
 const { ccclass, property } = _decorator;
 
-@ccclass("Movement")
-export class Movement extends Component {
+@ccclass("PlayerMovement")
+export class PlayerMovement extends Component {
 	@property(RigidBody2D)
 	rb: RigidBody2D;
 	playerCollider : CircleCollider2D;
@@ -47,9 +47,11 @@ export class Movement extends Component {
 				break;
 			case KeyCode.ARROW_RIGHT:
 				this.horizontalMove = 1;
+				this.node.setScale(new Vec3(1, 1, 1));
 				break;
 			case KeyCode.ARROW_LEFT:
 				this.horizontalMove = -1;
+				this.node.setScale(new Vec3(-1, 1, 1));
 				break;
 			case KeyCode.KEY_Z:
 				if (this.speed == 500){
@@ -84,19 +86,9 @@ export class Movement extends Component {
 		}
 	}
 
-	onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
-        console.log('onBeginContact');
-    }
-
-	onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
-        console.log('onBeginContact');
-    }
-
 	start() {
 		input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
 		input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
-
-		// this.playerCollider = this.getComponent(CircleCollider2D);
     }
 
 	protected update(dt: number): void {
@@ -112,7 +104,6 @@ export class Movement extends Component {
 				colliderList.forEach(collidere => {
 					if (collidere.tag === 1) {
 						result = true;
-						console.log("GROUND");
 					}
 				});
 			}

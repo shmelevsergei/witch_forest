@@ -118,6 +118,9 @@
       "marionette": {
         "_value": false
       },
+      "procedural-animation": {
+        "_value": true
+      },
       "custom-pipeline": {
         "_value": false
       }
@@ -133,6 +136,7 @@
       "intersection-2d",
       "particle-2d",
       "physics-2d-box2d",
+      "procedural-animation",
       "profiler",
       "spine",
       "tiled-map",
