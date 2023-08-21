@@ -1,5 +1,6 @@
+import { showHideModal } from "./../utils/modal";
 import { _decorator, Component, Node } from "cc";
-import { showHideModal } from "../utils/modal";
+
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerMenu")
