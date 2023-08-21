@@ -14,6 +14,7 @@ export class OpenModal extends Component {
 	}
 
 	openModal() {
+		this.node.active = false;
 		director.on("OpenModal", this.onOpenModal, this);
 	}
 
