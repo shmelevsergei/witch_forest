@@ -1,4 +1,4 @@
-import { _decorator, animation, AnimationClip, AnimationComponent, AnimationState, Component, Node } from 'cc';
+import { _decorator, Animation, AnimationClip, AnimationComponent, AnimationState, Component, Node } from 'cc';
 import { PlayerMovement } from './PlayerMovement';
 const { ccclass, property } = _decorator;
 
@@ -15,10 +15,10 @@ export class PlayerAnimation extends Component {
     start() {
         this.animationComponent = this.getComponent(AnimationComponent);
 
-        this.playerMovementState = this.animationComponent.getState("PlayerMovement");
+        this.playerMovementState = this.animationComponent.getState("PlayerWalk");
 
-        this.animationComponent.getState("PlayerMovement").wrapMode = AnimationClip.WrapMode.Loop;
-        this.animationComponent.getState("PlayerMovement").repeatCount = Number.POSITIVE_INFINITY;
+        this.animationComponent.getState("PlayerWalk").wrapMode = AnimationClip.WrapMode.Loop;
+        this.animationComponent.getState("PlayerWalk").repeatCount = Number.POSITIVE_INFINITY;
     }
 
     update(deltaTime: number) {
@@ -29,7 +29,7 @@ export class PlayerAnimation extends Component {
         else {
             // Play walk animation
             if (this.playerMovementState.isPlaying == false){
-                this.animationComponent.play();
+                this.animationComponent.play("PlayerWalk");
             }
         }
     }

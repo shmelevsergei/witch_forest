@@ -3,8 +3,8 @@ const { ccclass, property } = _decorator;
 
 @ccclass('Stairs')
 export class Stairs extends Component {
-    @property(Vec3)
-    point : Vec3 = new Vec3(0, 0, 0);
+    @property(Node)
+    point : Node = null;
 
     @property(Node)
     playerNode : Node = null;
@@ -13,8 +13,9 @@ export class Stairs extends Component {
     trigger : BoxCollider2D = null;
 
     Climb() {
-        const newPoint = new Vec3(this.node.position.x + this.point.x, this.node.position.y + this.point.y, this.node.position.z + this.point.z)
-        this.playerNode.setPosition(newPoint);
+        const newPoint = new Vec3(this.node.getWorldPosition().x + this.point.position.x, this.node.getWorldPosition().y + this.point.position.y, this.node.getWorldPosition().z + this.point.position.z)
+        this.playerNode.setWorldPosition(newPoint);
+        console.log(newPoint);
         this.askWindow.active = false;
     }
 

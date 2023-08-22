@@ -2,12 +2,12 @@
   "ver": "2.0.3",
   "importer": "animation-clip",
   "imported": true,
-  "uuid": "ecf51118-3c56-4a08-99c1-9911bae4a644",
+  "uuid": "4be5e8d7-3a07-4b26-b211-e18c39caacab",
   "files": [
     ".cconb"
   ],
   "subMetas": {},
   "userData": {
-    "name": "PlayerIdle"
+    "name": "PlayerWalk"
   }
 }
