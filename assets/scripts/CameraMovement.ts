@@ -10,7 +10,7 @@ export class CameraMovement extends Component {
 
 	protected lateUpdate(deltaTime: number): void {
 		let temptraget = this.targetNode.getWorldPosition().clone().add(this.cameraOffset);
-        this.node.position = Vec3.lerp(temptraget, this.node.position , temptraget, deltaTime * 5);
+        this.node.position = Vec3.lerp(temptraget, this.node.position , temptraget, deltaTime * 3);
 	}
 }
 
