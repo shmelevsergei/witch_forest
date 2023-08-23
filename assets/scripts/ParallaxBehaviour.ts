@@ -12,18 +12,17 @@ export class ParallaxBehaviour extends Component {
     
     targetPreviousPosition : Vec3 = null;
 
-
     start() {
         this.targetPreviousPosition = this.followingTarget.getWorldPosition();
     }
 
     update(deltaTime: number) {
-        let delta = this.followingTarget.getWorldPosition().subtract(this.targetPreviousPosition);
+        let delta = this.followingTarget.getWorldPosition().clone().subtract(this.targetPreviousPosition);
         this.targetPreviousPosition = this.followingTarget.getWorldPosition();
         if (this.disableVerticalParallax) {
             delta.y = 0;
         }
-        this.node.setPosition(this.node.position.clone().add(delta.clone().multiplyScalar(this.parallaxFactor)));
+        this.node.setPosition(this.node.position.clone().add(delta.multiplyScalar(this.parallaxFactor)));
         // this.node.position = new Vec3(this.node.position.clone().add(delta.clone().multiplyScalar(this.parallaxFactor)));
     }
 }
